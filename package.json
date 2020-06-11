@@ -1,0 +1,23 @@
+{
+  "name": "node-version-up",
+  "version": "1.0.0",
+  "description": "Increase version number in your react or node app in your package.json with one command",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node-version-up",
+    "react version up",
+    "node version up"
+  ],
+  "author": "Josh Conlin",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "2.0.1",
+    "child_process": "1.0.2",
+    "fs": "0.0.1-security",
+    "readline-sync": "1.4.7",
+    "yargs": "8.0.2"
+  }
+}
