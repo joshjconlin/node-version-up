@@ -1,6 +1,6 @@
 {
   "name": "node-version-up",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Increase version number in your react or node app in your package.json with one command",
   "main": "index.js",
   "scripts": {
