@@ -1,6 +1,5 @@
 'use strict';
 
-const fs = require('fs');
 const argv = require('yargs').argv;
 const readlineSync = require('readline-sync');
 
