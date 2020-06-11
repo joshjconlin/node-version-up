@@ -35,7 +35,7 @@ const args = {
       return argv.message || argv.m;
     }
 
-    return `"Release ${version}: increase versions and build numbers"`
+    return `Release ${version}: increase version.`
   },
   tag: (version) => {
     if (argv.tag || argv.t) {
@@ -51,7 +51,7 @@ const args = {
 const version = args.version();
 
 // getting commit message
-const message = args.message();
+const message = args.message(version);
 
 // getting commit tag
 const commitTag = args.tag(version);
