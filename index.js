@@ -14,21 +14,29 @@ const info = helpers.getPackageInfo(pathToPackage);
 const versionCurrent = info.version;
 const versions = helpers.versions(versionCurrent);
 
-const args = {
-  major: () => {
-    const major = !!(argv.major || argv.mj) || false;
+console.log(versions, versionCurrent);
 
-    return helpers.version(versions[0], major)
+const args = {
+  hasMajor: () => argv.major || argv.mj || false,
+  hasMinor: () => argv.minor || argv.mn || false,
+  hasPatch: () => argv.patch || argv.p || false,
+  major: () => {
+    const major = argv.major || argv.mj || false;
+
+    return helpers.version(versions[0], major, false, 'major');
   },
-  minor: () => {
+  minor: (major) => {
     const minor = argv.minor || argv.mn || false;
 
-    return helpers.version(versions[1], minor, args.major());
+    return helpers.version(versions[1], minor, major);
   },
-  patch: () => {
+  patch: (major, minor) => {
     const patch = argv.patch || argv.p || false;
 
-    return helpers.version(versions[2], patch, args.major() || args.minor());
+    console.log(patch, 'patch');
+    console.log(helpers.version(versions[2], patch, (major || minor)), 'patch');
+
+    return helpers.version(versions[2], patch, major || minor, 'patch');
   },
   message: (version) => {
     if (argv.message || argv.m) {
@@ -44,11 +52,15 @@ const args = {
 
     return `"v${version}"`;
   },
-  version: () => `${args.major()}.${args.minor()}.${args.patch()}`
+  version: (major, minor, patch) => `${major}.${minor}.${patch}`
 }
 
+const major = args.major();
+const minor = args.minor(args.hasMajor());
+const patch = args.patch(args.hasMajor(), args.hasMinor());
+
 // getting next version
-const version = args.version();
+const version = args.version(major, minor, patch);
 
 // getting commit message
 const message = args.message(version);
