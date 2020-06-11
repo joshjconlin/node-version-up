@@ -33,9 +33,6 @@ const args = {
   patch: (major, minor) => {
     const patch = argv.patch || argv.p || false;
 
-    console.log(patch, 'patch');
-    console.log(helpers.version(versions[2], patch, (major || minor)), 'patch');
-
     return helpers.version(versions[2], patch, major || minor, 'patch');
   },
   message: (version) => {

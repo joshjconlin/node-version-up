@@ -28,41 +28,55 @@ With this script you can:
 
 ## Example
 ```bash
-> npm run version-up --patch
+> npm run version-up patch
 
 I'm going to increase the version in:
-  - package.json (./package.json);
+  - package.json (/Users/joshconlin/development/node-version-up/package.json);
 
 The version will be changed:
-  - from: 0.2.2
-  - to:   0.2.3
+  - from: 1.0.0
+  - to:   1.0.1
 
-Use "0.2.3" as the next version? [y/n] y
+You are currently on branch master. 
 
-Updating version
+Do you want to use this branch? [y/n]
+y
+
+Use "1.0.1" as the next version? [y/n] y
+
+Updating versions
   Updating version in package.json...
     Version in package.json changed.
 
 I'm ready to cooperate with git!
   I want to make a commit with message:
-    "Release 0.2.3: increase version"
-  Do you want me to do this? [y/n] y
-
-  Committed!
-
-  I want to push this commit. Is this okay? [y/n] y
-
-  Commit Pushed!    
+    "Release 1.0.1: increase version."
   
+Do you want me to do this? [y/n] y
+  
+Committed!
+
+  I want to push this commit. Is this okay? [y/n]
+y
+
+Commit Pushed!
+
   I want to add a tag:
-    "v0.2.3" -m "release 0.2.3: increase versions and build numbers"
-  Do you allow me to do this? [y/n] y
-  
-  Tagged!
 
-  Do you want me to push this tag? [y/n] y
+  "v1.0.1"
 
-  Tag pushed! You're all done!
+Do you allow me to do this? [y/n]
+y
+
+Branch Tagged!
+
+
+Do you want me to push this tag? [y/n]
+y
+
+Tag pushed!
+
+You're all done!
 ```
 
 ## Options
