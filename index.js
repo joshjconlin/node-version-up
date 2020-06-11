@@ -14,8 +14,6 @@ const info = helpers.getPackageInfo(pathToPackage);
 const versionCurrent = info.version;
 const versions = helpers.versions(versionCurrent);
 
-console.log(versions, versionCurrent);
-
 const args = {
   hasMajor: () => argv.major || argv.mj || false,
   hasMinor: () => argv.minor || argv.mn || false,
