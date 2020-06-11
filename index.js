@@ -56,8 +56,6 @@ const message = args.message();
 // getting commit tag
 const commitTag = args.tag(version);
 
-// todo: display current branch, and ask if want to switch to master
-
 const initialize = new Promise((resolve, reject) => {
   helpers
       .ensureGitBranchClean()
@@ -65,7 +63,7 @@ const initialize = new Promise((resolve, reject) => {
         helpers.getGitBranch()
             .then((branch) => {
               return helpers.confirmBranch(branch)
-                  .then(resolve);
+                  .then(resolve).catch(reject);
             });
       })
       .catch(reject);
