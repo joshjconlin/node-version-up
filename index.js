@@ -106,7 +106,7 @@ const update = chain.then(() => {
 }).then(() => {
   log.info('Updating version in package.json...', 1);
 
-  helpers.changeVersionInPackage(pathToPackage, version);
+  // helpers.changeVersionInPackage(pathToPackage, version);
 
   log.success(`Version in package.json changed.`, 2);
 });
@@ -121,13 +121,14 @@ const commit = update.then(() => {
   const answer = readlineSync.question(question).toLowerCase();
 
   if (answer === 'y') {
-    return helpers.commitVersionIncrease(version, message, [
-      pathToPackage,
-    ]).then(() => {
-      log.success(`\nCommitted!\n`, 1);
-
       return 'committed';
-    });
+    // return helpers.commitVersionIncrease(version, message, [
+    //   pathToPackage,
+    // ]).then(() => {
+    //   log.success(`\nCommitted!\n`, 1);
+    //
+    //   return 'committed';
+    // });
   } else {
     log.warning(`Skipped.`, 1);
 
@@ -142,12 +143,13 @@ const pushCommit = commit.then((status) => {
     const answer = readlineSync.question(question).toLowerCase();
 
     if (answer === 'y') {
-      return helpers.pushCommit()
-          .then(() => {
-            log.success('\nCommit Pushed!\n');
-
-            return 'pushed'
-          });
+        return 'pushed';
+      // return helpers.pushCommit()
+      //     .then(() => {
+      //       log.success('\nCommit Pushed!\n');
+      //
+      //       return 'pushed'
+      //     });
     } else {
       log.info('\nCommit Skipped!\n', 1);
 
@@ -168,12 +170,13 @@ const tag = pushCommit.then((status) => {
     const answer = readlineSync.question(question).toLowerCase();
 
     if (answer === 'y') {
-      return helpers.tag(commitTag)
-          .then(() => {
-            log.success(`\nBranch Tagged!\n`);
-
-            return 'tagged';
-          });
+        return 'tagged';
+      // return helpers.tag(commitTag)
+      //     .then(() => {
+      //       log.success(`\nBranch Tagged!\n`);
+      //
+      //       return 'tagged';
+      //     });
     } else {
       log.info('\nTagging skipped\n');
 
@@ -191,12 +194,13 @@ const pushTag = tag.then((status) => {
     const answer = readlineSync.question(question).toLowerCase();
 
     if (answer === 'y') {
-      return helpers.pushTag()
-          .then(() => {
-            log.info('\nTag pushed!\n');
-
-            return 'pushed';
-          });
+        return 'pushed';
+      // return helpers.pushTag()
+      //     .then(() => {
+      //       log.info('\nTag pushed!\n');
+      //
+      //       return 'pushed';
+      //     });
     } else {
       log.info('\nPushing tag skipped\n', 1);
 
