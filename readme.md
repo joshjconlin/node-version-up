@@ -1,5 +1,5 @@
 # Install
-```npm install node-version-up```
+```npm install node-version-up --save --dev```
 
 # Node/React version upper
 Increase `major`, `minor` or `patch` part of the version in your app in package.json with one command.
@@ -16,22 +16,26 @@ With this script you can:
   "name": "your-project-name",
   "version": "1.0.0",
   "scripts": {
-    "version-up": "node ./node_modules/node-version-up/index.js"
+    "version-up:major": "node ./node_modules/node-version-up/index.js --major",
+    "version-up:minor": "node ./node_modules/node-version-up/index.js --minor",
+    "version-up:patch": "node ./node_modules/node-version-up/index.js --patch"
   }
 }
 ```
 
 **2. Run version up.**
 ```
-> npm run version-up --{major | minor | patch}
+> npm run version-up:{major | minor | patch} -- --{flag} {value}
 ```
 
-## Example
+## Examples
+
+##### Basic Usage
 ```bash
-> npm run version-up patch
+> npm run version-up:patch
 
 I'm going to increase the version in:
-  - package.json (/Users/joshconlin/development/node-version-up/package.json);
+  - package.json (/Users/user/development/node-version-up/package.json);
 
 The version will be changed:
   - from: 1.0.0
@@ -39,8 +43,7 @@ The version will be changed:
 
 You are currently on branch master. 
 
-Do you want to use this branch? [y/n]
-y
+Do you want to use this branch? [y/n] y
 
 Use "1.0.1" as the next version? [y/n] y
 
@@ -56,8 +59,7 @@ Do you want me to do this? [y/n] y
   
 Committed!
 
-  I want to push this commit. Is this okay? [y/n]
-y
+  I want to push this commit. Is this okay? [y/n] y
 
 Commit Pushed!
 
@@ -65,24 +67,72 @@ Commit Pushed!
 
   "v1.0.1"
 
-Do you allow me to do this? [y/n]
-y
+Do you allow me to do this? [y/n] y
 
 Branch Tagged!
 
-
-Do you want me to push this tag? [y/n]
-y
+Do you want me to push this tag? [y/n] y
 
 Tag pushed!
 
 You're all done!
 ```
 
+##### Custom Commit Message and Tag
+```bash
+> npm run version-up:patch -- --m "Bump version to 1.0.1" --t "Version:1.0.1"
+
+I'm going to increase the version in:
+  - package.json (/Users/user/development/node-version-up/package.json);
+
+The version will be changed:
+  - from: 1.0.0
+  - to:   1.0.1
+
+You are currently on branch master. 
+
+Do you want to use this branch? [y/n] y
+
+Use "1.0.1" as the next version? [y/n] y
+
+Updating versions
+  Updating version in package.json...
+    Version in package.json changed.
+
+I'm ready to cooperate with git!
+  I want to make a commit with message:
+    "Bump version to 1.0.1"
+  
+Do you want me to do this? [y/n] y
+  
+Committed!
+
+  I want to push this commit. Is this okay? [y/n] y
+
+Commit Pushed!
+
+  I want to add a tag:
+
+  "Version:1.0.1"
+
+Do you allow me to do this? [y/n] y
+
+Branch Tagged!
+
+
+Do you want me to push this tag? [y/n] y
+
+Tag pushed!
+
+You're all done!
+```
+
+## Decision Pathway
+
 ## Options
 You can pass option name and value with following syntax (remember to put `--` before options):
 ```
-npm run version-up --flag value
+npm run version-up:{major | minor | patch} -- --flag value
 ```
 
 | **Option** | **Type** | **Default value** | **Description** |
