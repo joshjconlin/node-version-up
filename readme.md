@@ -138,8 +138,9 @@ npm run version-up:{major | minor | patch} -- --flag value
 | **Option** | **Type** | **Default value** | **Description** |
 |------------|----------|-------------------|-----------------|
 | **`--major` or `--mj`** | `flag` | | Increase `major` version:<br/>**0**.0.0 -> **1**.0.0 |
-| **`--minor or `--mn`** | `flag` | | Increase `minor` version:<br/>0.**0**.0 -> 0.**1**.0 |
-| **`--patch or `--p`** | `flag` | | Increase `patch` version:<br/>0.0.**0** -> 0.0.**1** |
+| **`--minor` or `--mn`** | `flag` | | Increase `minor` version:<br/>0.**0**.0 -> 0.**1**.0 |
+| **`--patch` or `--p`** | `flag` | | Increase `patch` version:<br/>0.0.**0** -> 0.0.**1** |
 | **`--message` or `--m`** | `string` | `"release ${version}: increase versions and build numbers"` | Custom commit message. |
 | **`--tag` or `--t`** | `string` | `v{major}.{minor}.{patch}` | Custom git tag |
 | **`--pathToPackage './path'`** | `string` | `./package.json` | Path to `package.json` file in your project. |
+| **`--force` or `--f` | `flag` | false | Disable clean branch check and add all files to commit (git add .) |
