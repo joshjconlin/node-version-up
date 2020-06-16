@@ -92,12 +92,6 @@ const run = () => {
     )
         .then(
             () => (utils.ensureGitBranchClean(shouldForceGit))
-            // utils.chain(
-            //     [],
-            //     utils.passFuncWithArgs(
-            //         [shouldForceGit],
-            //         utils.ensureGitBranchClean,
-            //     ))
                 .then(utils.getGitBranch)
                 .then(utils.confirmBranch) // todo: can pull out to outer level?
         )
